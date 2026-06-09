@@ -32,4 +32,20 @@ text = "What color is the sky?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AnswerInput" type="LineEdit" parent="QuestionPanel" unique_id=1452983421]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 377.0
+offset_right = 696.0
+offset_bottom = 451.0
+
+[node name="SubmitButton" type="Button" parent="QuestionPanel" unique_id=1839382824]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 496.0
+offset_right = 701.0
+offset_bottom = 580.0
+text = "SUBMIT"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="QuestionPanel/SubmitButton" to="." method="_on_submit_button_pressed"]
