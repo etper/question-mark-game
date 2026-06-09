@@ -8,6 +8,13 @@ script = ExtResource("1_vb3nq")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=870551181]
 offset_left = -32.0
 offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.5867776, 0.16076559, 0.066651106, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1825702315]
+offset_left = -32.0
+offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
-color = Color(1, 0, 0, 1)
+color = Color(0.7294118, 0.21176471, 0.09803922, 1)

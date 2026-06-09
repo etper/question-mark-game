@@ -5,9 +5,16 @@
 [node name="Player" type="CharacterBody2D" unique_id=330053697]
 script = ExtResource("1_xhfnw")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2071979753]
-offset_left = -20.0
-offset_top = -20.0
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1403911066]
+offset_left = -16.0
+offset_top = -15.0
 offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0, 1, 0, 1)
+offset_bottom = 21.0
+color = Color(0.14748082, 0.28983057, 0.5027555, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2071979753]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.24705882, 0.43529412, 0.7176471, 1)

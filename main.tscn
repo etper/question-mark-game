@@ -3,9 +3,101 @@
 [ext_resource type="Script" uid="uid://d3dwpftomeijs" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://gu3x7n4qrtf3" path="res://Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d0y8wdg5w15tf" path="res://Monster.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dk3uurnd4iirx" path="res://sprites/floor.png" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://bsdudn0vgu2a5" path="res://sprites/livesBG.png" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bqg7qphsfc717" path="res://sprites/wall.png" id="3_4c57u"]
+[ext_resource type="Texture2D" uid="uid://d3m4oqeuyiawq" path="res://sprites/heart.png" id="3_7mycd"]
+[ext_resource type="FontFile" uid="uid://d1osxkg76wyid" path="res://Chewy-Regular.ttf" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://ds3mduext7jfn" path="res://sprites/wallShade.png" id="4_efxa6"]
+[ext_resource type="Texture2D" uid="uid://oet277dsta3j" path="res://sprites/timeBG.png" id="5_272bh"]
 
 [node name="Main" type="Node2D" unique_id=1858380961]
 script = ExtResource("1_h2yge")
+
+[node name="BG" type="Control" parent="." unique_id=102252367]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 648.0
+
+[node name="Floor" type="Sprite2D" parent="BG" unique_id=302900800]
+position = Vector2(576.00006, 324)
+scale = Vector2(0.7955801, 0.59668505)
+texture = ExtResource("2_5vw27")
+metadata/_edit_lock_ = true
+
+[node name="Wall" type="Sprite2D" parent="BG" unique_id=1622325807]
+position = Vector2(576.00006, 324)
+scale = Vector2(0.7955801, 0.59668505)
+texture = ExtResource("3_4c57u")
+metadata/_edit_lock_ = true
+
+[node name="WallShade" type="Sprite2D" parent="BG/Wall" unique_id=1078992676]
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("4_efxa6")
+metadata/_edit_lock_ = true
+
+[node name="UI" type="Control" parent="." unique_id=442977160]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lives" type="Control" parent="UI" unique_id=1115757940]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LivesBG" type="Sprite2D" parent="UI/Lives" unique_id=181896339]
+position = Vector2(100, 55)
+texture = ExtResource("2_lquwl")
+
+[node name="Heart" type="Sprite2D" parent="UI/Lives" unique_id=1439650949]
+position = Vector2(52, 64)
+texture = ExtResource("3_7mycd")
+
+[node name="Heart2" type="Sprite2D" parent="UI/Lives" unique_id=1742051238]
+position = Vector2(100, 64)
+texture = ExtResource("3_7mycd")
+
+[node name="Heart3" type="Sprite2D" parent="UI/Lives" unique_id=1652794837]
+position = Vector2(148, 64)
+texture = ExtResource("3_7mycd")
+
+[node name="LivesText" type="Label" parent="UI/Lives" unique_id=1164994958]
+layout_mode = 0
+offset_right = 199.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.25882354, 0.12156863, 0.06666667, 1)
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 26
+text = "LIVES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Control" parent="UI" unique_id=146118889]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeBG" type="Sprite2D" parent="UI/Time" unique_id=1262871985]
+position = Vector2(576, 64)
+texture = ExtResource("5_272bh")
+
+[node name="TimerText" type="Label" parent="UI/Time" unique_id=222734733]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 7.0
+offset_right = 656.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.25882354, 0.12156863, 0.06666667, 1)
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 64
+text = "36"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player" parent="." unique_id=330053697 instance=ExtResource("1_ig7tw")]
 position = Vector2(550, 342)
@@ -19,6 +111,7 @@ wait_time = 10.0
 autostart = true
 
 [node name="QuestionPanel" type="Panel" parent="." unique_id=181747024]
+visible = false
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true

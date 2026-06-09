@@ -1,6 +1,8 @@
 extends Node2D
 
 var lives = 3
+var survival_time = 0.0
+var game_won = false
 
 var timer_wait_time = 1.0
 
@@ -26,7 +28,6 @@ func _ready():
 	$Timer.wait_time = timer_wait_time
 	$Timer.start()
 
-
 func _on_timer_timeout():
 	var q = questions.pick_random()
 
@@ -37,7 +38,6 @@ func _on_timer_timeout():
 	$QuestionPanel.visible = true
 
 	get_tree().paused = true
-
 
 func _on_submit_button_pressed():
 	var player_answer = $QuestionPanel/AnswerInput.text.strip_edges().to_lower()
@@ -58,6 +58,24 @@ func _on_submit_button_pressed():
 
 		if lives <= 0:
 			print("Game Over")
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://GameOver.tscn")
 
 		$QuestionPanel/AnswerInput.text = ""
+
+func _process(delta):
+	if game_won:
+		return
+
+	# Only count time while gameplay is running
+	if !get_tree().paused:
+		survival_time += delta
+
+		if survival_time >= 60.0 and lives > 0:
+			win_game()
+
+func win_game():
+	game_won = true
+
+	print("YOU WIN! Survived 60 seconds with", lives, "lives left.")
+
+	get_tree().paused = true
