@@ -111,9 +111,6 @@ wait_time = 10.0
 autostart = true
 
 [node name="QuestionPanel" type="Panel" parent="." unique_id=181747024]
-visible = false
-grow_horizontal = 2
-grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="QuestionLabel" type="Label" parent="QuestionPanel" unique_id=1874791770]
@@ -125,20 +122,31 @@ text = "What color is the sky?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnswerInput" type="LineEdit" parent="QuestionPanel" unique_id=1452983421]
+[node name="AnswerButton1" type="Button" parent="QuestionPanel" unique_id=1839382824]
 layout_mode = 0
-offset_left = 457.0
-offset_top = 377.0
-offset_right = 696.0
-offset_bottom = 451.0
+offset_left = 318.0
+offset_top = 395.0
+offset_right = 446.0
+offset_bottom = 523.0
+text = "1"
 
-[node name="SubmitButton" type="Button" parent="QuestionPanel" unique_id=1839382824]
+[node name="AnswerButton2" type="Button" parent="QuestionPanel" unique_id=816401517]
 layout_mode = 0
-offset_left = 453.0
-offset_top = 496.0
-offset_right = 701.0
-offset_bottom = 580.0
-text = "SUBMIT"
+offset_left = 510.0
+offset_top = 395.0
+offset_right = 638.0
+offset_bottom = 523.0
+text = "2"
+
+[node name="AnswerButton3" type="Button" parent="QuestionPanel" unique_id=472731740]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 395.0
+offset_right = 830.0
+offset_bottom = 523.0
+text = "3"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="QuestionPanel/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="QuestionPanel/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="QuestionPanel/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="QuestionPanel/AnswerButton3" to="." method="_on_answer_button_3_pressed"]

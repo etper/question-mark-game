@@ -9,11 +9,13 @@ var timer_wait_time = 1.0
 var questions = [
 	{
 		"question": "What is 2 + 2?",
-		"answer": "4"
+		"choices": ["3", "4", "5"],
+		"correct": "4"
 	},
 	{
 		"question": "What color is the sky?",
-		"answer": "blue"
+		"choices": ["red", "blue", "green"],
+		"correct": "blue"
 	}
 ]
 
@@ -32,17 +34,20 @@ func _on_timer_timeout():
 	var q = questions.pick_random()
 
 	$QuestionPanel/QuestionLabel.text = q["question"]
-	current_answer = q["answer"].to_lower()
+	current_answer = q["correct"].to_lower()
 
-	$QuestionPanel/AnswerInput.text = ""
+	var choices = q["choices"]
+
+	$QuestionPanel/AnswerButton1.text = choices[0]
+	$QuestionPanel/AnswerButton2.text = choices[1]
+	$QuestionPanel/AnswerButton3.text = choices[2]
+
 	$QuestionPanel.visible = true
 
 	get_tree().paused = true
 
-func _on_submit_button_pressed():
-	var player_answer = $QuestionPanel/AnswerInput.text.strip_edges().to_lower()
-
-	if player_answer == current_answer:
+func check_answer(answer):
+	if answer.to_lower() == current_answer:
 		print("Correct!")
 
 		get_tree().paused = false
@@ -60,13 +65,19 @@ func _on_submit_button_pressed():
 			print("Game Over")
 			get_tree().change_scene_to_file("res://GameOver.tscn")
 
-		$QuestionPanel/AnswerInput.text = ""
+func _on_answer_button_1_pressed():
+	check_answer($QuestionPanel/AnswerButton1.text)
+
+func _on_answer_button_2_pressed():
+	check_answer($QuestionPanel/AnswerButton2.text)
+
+func _on_answer_button_3_pressed():
+	check_answer($QuestionPanel/AnswerButton3.text)
 
 func _process(delta):
 	if game_won:
 		return
 
-	# Only count time while gameplay is running
 	if !get_tree().paused:
 		survival_time += delta
 
@@ -76,6 +87,6 @@ func _process(delta):
 func win_game():
 	game_won = true
 
-	print("YOU WIN! Survived 60 seconds with", lives, "lives left.")
+	print("YOU WIN! Survived 60 seconds with ", lives, " lives left.")
 
 	get_tree().paused = true
