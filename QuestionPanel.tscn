@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://divnilvv14a3u"]
+
+[ext_resource type="Script" uid="uid://btv1ngyys4qi7" path="res://question_panel.gd" id="1_8jco2"]
+[ext_resource type="FontFile" uid="uid://d1osxkg76wyid" path="res://Chewy-Regular.ttf" id="2_pp4sa"]
+[ext_resource type="Texture2D" uid="uid://djiov8ihw5wy5" path="res://sprites/button.png" id="3_m2he2"]
+[ext_resource type="Texture2D" uid="uid://dib1j36gqvrbx" path="res://sprites/questionBG.png" id="4_m2he2"]
+
+[node name="QuestionPanel" type="Panel" unique_id=481925224]
+offset_left = -7.0
+offset_top = -44.0
+offset_right = -7.0
+offset_bottom = -44.0
+script = ExtResource("1_8jco2")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1453256339]
+position = Vector2(581, 368)
+texture = ExtResource("4_m2he2")
+
+[node name="QuestionLabel" type="Label" parent="." unique_id=606158276]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 107.0
+offset_right = 888.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(0.21568628, 0.11372549, 0.05490196, 1)
+theme_override_fonts/font = ExtResource("2_pp4sa")
+theme_override_font_sizes/font_size = 53
+text = "What color is the sky?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnswerButton1" type="Button" parent="." unique_id=345151335]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 395.0
+offset_right = 446.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0.21568628, 0.11372549, 0.05490196, 1)
+theme_override_colors/font_hover_color = Color(0.8730697, 0.6088611, 0.4743513, 1)
+theme_override_fonts/font = ExtResource("2_pp4sa")
+theme_override_font_sizes/font_size = 49
+text = "1"
+icon = ExtResource("3_m2he2")
+flat = true
+icon_alignment = 1
+
+[node name="AnswerButton2" type="Button" parent="." unique_id=96783020]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 395.0
+offset_right = 664.0
+offset_bottom = 554.0
+theme_override_colors/font_color = Color(0.21568628, 0.11372549, 0.05490196, 1)
+theme_override_colors/font_hover_color = Color(0.8730697, 0.6088611, 0.4743513, 1)
+theme_override_fonts/font = ExtResource("2_pp4sa")
+theme_override_font_sizes/font_size = 49
+text = "2"
+icon = ExtResource("3_m2he2")
+flat = true
+icon_alignment = 1
+
+[node name="AnswerButton3" type="Button" parent="." unique_id=616550591]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 395.0
+offset_right = 856.0
+offset_bottom = 554.0
+theme_override_colors/font_color = Color(0.21568628, 0.11372549, 0.05490196, 1)
+theme_override_colors/font_hover_color = Color(0.8730697, 0.6088611, 0.4743513, 1)
+theme_override_fonts/font = ExtResource("2_pp4sa")
+theme_override_font_sizes/font_size = 49
+text = "3"
+icon = ExtResource("3_m2he2")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="AnswerButton1" to="." method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="AnswerButton3" to="." method="_on_answer_button_3_pressed"]

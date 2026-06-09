@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bsdudn0vgu2a5" path="res://sprites/livesBG.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bqg7qphsfc717" path="res://sprites/wall.png" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://d3m4oqeuyiawq" path="res://sprites/heart.png" id="3_7mycd"]
+[ext_resource type="Texture2D" uid="uid://do78o3hkwgrj2" path="res://sprites/ground.png" id="3_dg77c"]
 [ext_resource type="FontFile" uid="uid://d1osxkg76wyid" path="res://Chewy-Regular.ttf" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://ds3mduext7jfn" path="res://sprites/wallShade.png" id="4_efxa6"]
 [ext_resource type="Texture2D" uid="uid://oet277dsta3j" path="res://sprites/timeBG.png" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://divnilvv14a3u" path="res://QuestionPanel.tscn" id="11_efxa6"]
 
 [node name="Main" type="Node2D" unique_id=1858380961]
 script = ExtResource("1_h2yge")
@@ -24,6 +26,12 @@ offset_bottom = 648.0
 position = Vector2(576.00006, 324)
 scale = Vector2(0.7955801, 0.59668505)
 texture = ExtResource("2_5vw27")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="Sprite2D" parent="BG" unique_id=1531685401]
+position = Vector2(576.00006, 324)
+scale = Vector2(0.826, 0.62)
+texture = ExtResource("3_dg77c")
 metadata/_edit_lock_ = true
 
 [node name="Wall" type="Sprite2D" parent="BG" unique_id=1622325807]
@@ -110,43 +118,6 @@ player = NodePath("../Player")
 wait_time = 10.0
 autostart = true
 
-[node name="QuestionPanel" type="Panel" parent="." unique_id=181747024]
-metadata/_edit_use_anchors_ = true
-
-[node name="QuestionLabel" type="Label" parent="QuestionPanel" unique_id=1874791770]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_font_sizes/font_size = 53
-text = "What color is the sky?"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AnswerButton1" type="Button" parent="QuestionPanel" unique_id=1839382824]
-layout_mode = 0
-offset_left = 318.0
-offset_top = 395.0
-offset_right = 446.0
-offset_bottom = 523.0
-text = "1"
-
-[node name="AnswerButton2" type="Button" parent="QuestionPanel" unique_id=816401517]
-layout_mode = 0
-offset_left = 510.0
-offset_top = 395.0
-offset_right = 638.0
-offset_bottom = 523.0
-text = "2"
-
-[node name="AnswerButton3" type="Button" parent="QuestionPanel" unique_id=472731740]
-layout_mode = 0
-offset_left = 702.0
-offset_top = 395.0
-offset_right = 830.0
-offset_bottom = 523.0
-text = "3"
+[node name="QuestionPanel" parent="." unique_id=481925224 instance=ExtResource("11_efxa6")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="QuestionPanel/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
-[connection signal="pressed" from="QuestionPanel/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="QuestionPanel/AnswerButton3" to="." method="_on_answer_button_3_pressed"]

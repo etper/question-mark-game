@@ -24,8 +24,11 @@ var current_answer = ""
 func _ready():
 	$QuestionPanel.visible = false
 
-	# Allows the panel to still work while the game is paused
+	# Allow question panel to work while game is paused
 	$QuestionPanel.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	# Listen for answers from QuestionPanel
+	$QuestionPanel.answer_selected.connect(check_answer)
 
 	$Timer.wait_time = timer_wait_time
 	$Timer.start()
@@ -33,15 +36,9 @@ func _ready():
 func _on_timer_timeout():
 	var q = questions.pick_random()
 
-	$QuestionPanel/QuestionLabel.text = q["question"]
 	current_answer = q["correct"].to_lower()
 
-	var choices = q["choices"]
-
-	$QuestionPanel/AnswerButton1.text = choices[0]
-	$QuestionPanel/AnswerButton2.text = choices[1]
-	$QuestionPanel/AnswerButton3.text = choices[2]
-
+	$QuestionPanel.setup(q)
 	$QuestionPanel.visible = true
 
 	get_tree().paused = true
@@ -64,15 +61,6 @@ func check_answer(answer):
 		if lives <= 0:
 			print("Game Over")
 			get_tree().change_scene_to_file("res://GameOver.tscn")
-
-func _on_answer_button_1_pressed():
-	check_answer($QuestionPanel/AnswerButton1.text)
-
-func _on_answer_button_2_pressed():
-	check_answer($QuestionPanel/AnswerButton2.text)
-
-func _on_answer_button_3_pressed():
-	check_answer($QuestionPanel/AnswerButton3.text)
 
 func _process(delta):
 	if game_won:
