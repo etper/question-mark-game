@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://geka6cxmg77k"]
 
+[ext_resource type="Script" uid="uid://d3dwpftomeijs" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://gu3x7n4qrtf3" path="res://Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d0y8wdg5w15tf" path="res://Monster.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=1858380961]
+script = ExtResource("1_h2yge")
 
 [node name="Player" parent="." unique_id=330053697 instance=ExtResource("1_ig7tw")]
 position = Vector2(550, 342)
@@ -11,3 +13,9 @@ position = Vector2(550, 342)
 [node name="Monster" parent="." unique_id=910967317 node_paths=PackedStringArray("player") instance=ExtResource("2_0xm2m")]
 position = Vector2(231, 332)
 player = NodePath("../Player")
+
+[node name="Timer" type="Timer" parent="." unique_id=825141656]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
