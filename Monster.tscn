@@ -8,6 +8,9 @@ size = Vector2(64, 64)
 [node name="Monster" type="CharacterBody2D" unique_id=1716974880]
 script = ExtResource("1_vb3nq")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1837606843]
+shape = SubResource("RectangleShape2D_vb3nq")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=870551181]
 offset_left = -32.0
 offset_top = -32.0

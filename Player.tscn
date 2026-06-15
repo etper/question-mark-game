@@ -8,6 +8,9 @@ size = Vector2(32, 32)
 [node name="Player" type="CharacterBody2D" unique_id=330053697]
 script = ExtResource("1_xhfnw")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=376137461]
+shape = SubResource("RectangleShape2D_xhfnw")
+
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1403911066]
 offset_left = -16.0
 offset_top = -15.0
