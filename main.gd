@@ -112,7 +112,7 @@ func check_answer(answer, button):
 		update_hearts()
 
 		if lives <= 0:
-			get_tree().change_scene_to_file("res://GameOver.tscn")
+			show_game_over()
 
 func _process(delta):
 	if game_won:
@@ -138,3 +138,7 @@ func update_hearts():
 	$UI/Lives/Heart.texture = full_heart if lives >= 1 else empty_heart
 	$UI/Lives/Heart2.texture = full_heart if lives >= 2 else empty_heart
 	$UI/Lives/Heart3.texture = full_heart if lives >= 3 else empty_heart
+
+func show_game_over():
+	get_tree().paused = true
+	$GameOverPanel.visible = true

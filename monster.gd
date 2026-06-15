@@ -33,7 +33,7 @@ func damage_player():
 	main.update_hearts()
 
 	if main.lives <= 0:
-		get_tree().change_scene_to_file("res://GameOver.tscn")
+		main.show_game_over()
 
 	await get_tree().create_timer(1.0).timeout
 	can_damage = true

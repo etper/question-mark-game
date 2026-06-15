@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bea2yu6huv6pn"]
+
+[ext_resource type="Script" uid="uid://btv1ngyys4qi7" path="res://question_panel.gd" id="1_44vri"]
+[ext_resource type="Texture2D" uid="uid://dib1j36gqvrbx" path="res://sprites/questionBG.png" id="2_5sjn2"]
+[ext_resource type="FontFile" uid="uid://d1osxkg76wyid" path="res://Chewy-Regular.ttf" id="3_wcivc"]
+
+[node name="GameOverPanel" type="Panel" unique_id=481925224]
+offset_left = -7.0
+offset_top = -44.0
+offset_right = -7.0
+offset_bottom = -44.0
+script = ExtResource("1_44vri")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1453256339]
+position = Vector2(581, 368)
+texture = ExtResource("2_5sjn2")
+
+[node name="QuestionLabel" type="Label" parent="." unique_id=606158276]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 107.0
+offset_right = 888.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(0.21568628, 0.11372549, 0.05490196, 1)
+theme_override_fonts/font = ExtResource("3_wcivc")
+theme_override_font_sizes/font_size = 97
+text = "GAME OVER
+: C"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

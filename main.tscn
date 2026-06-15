@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ds3mduext7jfn" path="res://sprites/wallShade.png" id="4_efxa6"]
 [ext_resource type="Texture2D" uid="uid://oet277dsta3j" path="res://sprites/timeBG.png" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://divnilvv14a3u" path="res://QuestionPanel.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bea2yu6huv6pn" path="res://GameOverPanel.tscn" id="13_ycdy4"]
 
 [node name="Main" type="Node2D" unique_id=1858380961]
 script = ExtResource("1_h2yge")
@@ -119,6 +120,9 @@ wait_time = 10.0
 autostart = true
 
 [node name="QuestionPanel" parent="." unique_id=481925224 instance=ExtResource("11_efxa6")]
+visible = false
+
+[node name="GameOverPanel" parent="." unique_id=438587342 instance=ExtResource("13_ycdy4")]
 visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
