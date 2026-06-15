@@ -21,17 +21,19 @@ var questions = [
 
 var current_answer = ""
 
+var full_heart = preload("res://sprites/heart.png")
+var empty_heart = preload("res://sprites/heart_empty.png")
+
 func _ready():
 	$QuestionPanel.visible = false
 
-	# Allow question panel to work while game is paused
 	$QuestionPanel.process_mode = Node.PROCESS_MODE_ALWAYS
-
-	# Listen for answers from QuestionPanel
 	$QuestionPanel.answer_selected.connect(check_answer)
 
 	$Timer.wait_time = timer_wait_time
 	$Timer.start()
+
+	update_hearts()
 
 func _on_timer_timeout():
 	var q = questions.pick_random()
@@ -55,6 +57,8 @@ func check_answer(answer):
 
 	else:
 		lives -= 1
+		
+		update_hearts()
 
 		print("Wrong! Lives left: ", lives)
 
@@ -81,3 +85,8 @@ func win_game():
 	print("YOU WIN! Survived 60 seconds with ", lives, " lives left.")
 
 	get_tree().paused = true
+
+func update_hearts():
+	$UI/Lives/Heart.texture = full_heart if lives >= 1 else empty_heart
+	$UI/Lives/Heart2.texture = full_heart if lives >= 2 else empty_heart
+	$UI/Lives/Heart3.texture = full_heart if lives >= 3 else empty_heart
