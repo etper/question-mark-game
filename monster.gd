@@ -15,10 +15,13 @@ func _physics_process(delta):
 	velocity = direction * SPEED
 	move_and_slide()
 
-func _on_area_2d_body_entered(body):
-	if body.name != "Player":
-		return
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
 
+		if collision.get_collider().name == "Player":
+			damage_player()
+
+func damage_player():
 	if !can_damage:
 		return
 
