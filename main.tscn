@@ -119,5 +119,6 @@ wait_time = 10.0
 autostart = true
 
 [node name="QuestionPanel" parent="." unique_id=481925224 instance=ExtResource("11_efxa6")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

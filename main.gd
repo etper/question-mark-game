@@ -69,8 +69,11 @@ func _process(delta):
 	if !get_tree().paused:
 		survival_time += delta
 
-		if survival_time >= 60.0 and lives > 0:
-			win_game()
+	var time_left = max(0, 60 - int(survival_time))
+	$UI/Time/TimerText.text = str(time_left)
+
+	if survival_time >= 60.0 and lives > 0:
+		win_game()
 
 func win_game():
 	game_won = true
