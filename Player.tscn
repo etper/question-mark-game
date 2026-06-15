@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ddxc3p3hjirp3" path="res://player.gd" id="1_xhfnw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
+size = Vector2(32, 32)
+
 [node name="Player" type="CharacterBody2D" unique_id=330053697]
 script = ExtResource("1_xhfnw")
 
@@ -18,3 +21,8 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 color = Color(0.24705882, 0.43529412, 0.7176471, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=313333354]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1707523729]
+shape = SubResource("RectangleShape2D_xhfnw")

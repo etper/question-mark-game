@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cv0dxwb1rfxt3" path="res://monster.gd" id="1_vb3nq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb3nq"]
+size = Vector2(64, 64)
+
 [node name="Monster" type="CharacterBody2D" unique_id=1716974880]
 script = ExtResource("1_vb3nq")
 
@@ -18,3 +21,10 @@ offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 color = Color(0.7294118, 0.21176471, 0.09803922, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1908041806]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2085779188]
+shape = SubResource("RectangleShape2D_vb3nq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

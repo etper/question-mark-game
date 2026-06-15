@@ -16,6 +16,56 @@ var questions = [
 		"question": "What color is the sky?",
 		"choices": ["red", "blue", "green"],
 		"correct": "blue"
+	},
+	{
+		"question": "What is 5 + 7?",
+		"choices": ["10", "12", "14"],
+		"correct": "12"
+	},
+	{
+		"question": "Which planet do we live on?",
+		"choices": ["Mars", "Earth", "Venus"],
+		"correct": "Earth"
+	},
+	{
+		"question": "How many days are in a week?",
+		"choices": ["5", "7", "10"],
+		"correct": "7"
+	},
+	{
+		"question": "What is the capital of France?",
+		"choices": ["Paris", "Rome", "Berlin"],
+		"correct": "Paris"
+	},
+	{
+		"question": "What animal says 'meow'?",
+		"choices": ["Dog", "Cat", "Cow"],
+		"correct": "Cat"
+	},
+	{
+		"question": "What is 9 x 3?",
+		"choices": ["27", "21", "24"],
+		"correct": "27"
+	},
+	{
+		"question": "Which season comes after spring?",
+		"choices": ["Winter", "Summer", "Autumn"],
+		"correct": "Summer"
+	},
+	{
+		"question": "How many sides does a triangle have?",
+		"choices": ["3", "4", "5"],
+		"correct": "3"
+	},
+	{
+		"question": "Which ocean is the largest?",
+		"choices": ["Atlantic", "Indian", "Pacific"],
+		"correct": "Pacific"
+	},
+	{
+		"question": "What is 15 - 6?",
+		"choices": ["8", "9", "10"],
+		"correct": "9"
 	}
 ]
 

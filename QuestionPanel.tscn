@@ -29,6 +29,7 @@ theme_override_font_sizes/font_size = 53
 text = "What color is the sky?"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="AnswerButton1" type="Button" parent="." unique_id=345151335]
 layout_mode = 0
