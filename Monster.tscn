@@ -5,7 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vb3nq"]
 size = Vector2(64, 64)
 
-[node name="Monster" type="CharacterBody2D" unique_id=1716974880]
+[node name="Monster" type="CharacterBody2D" unique_id=1018400324]
+collision_mask = 2
 script = ExtResource("1_vb3nq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1837606843]
