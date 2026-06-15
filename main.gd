@@ -45,7 +45,7 @@ func _on_timer_timeout():
 
 	get_tree().paused = true
 
-func check_answer(answer):
+func check_answer(answer, button):
 	if answer.to_lower() == current_answer:
 		print("Correct!")
 
@@ -56,14 +56,12 @@ func check_answer(answer):
 		$Timer.start()
 
 	else:
+		button.visible = false
+
 		lives -= 1
-		
 		update_hearts()
 
-		print("Wrong! Lives left: ", lives)
-
 		if lives <= 0:
-			print("Game Over")
 			get_tree().change_scene_to_file("res://GameOver.tscn")
 
 func _process(delta):
